@@ -1,15 +1,24 @@
 import axios from 'axios';
+import jsonp from 'jsonp';
 
-export const getCityInfo = (locationKey: string) => {
+export const getCityInfo = (locationKey: string): Promise<any> => {
   const url = `http://dataservice.accuweather.com/locations/v1/${locationKey}?apikey=${process.env.VUE_APP_ACCUWEATHER_API_KEY}`;
-  return axios(url)
-    .then((resp) => resp.data);
+  return new Promise((resolve, reject) => {
+    jsonp(url, { param: 'callback' }, (err, resp) => {
+      if (err) reject(err);
+      resolve(resp);
+    });
+  });
 };
 
-export const getCityWeather = (locationKey: string) => {
+export const getCityWeather = (locationKey: string): Promise<any> => {
   const url = `http://dataservice.accuweather.com/forecasts/v1/daily/1day/${locationKey}?apikey=${process.env.VUE_APP_ACCUWEATHER_API_KEY}`;
-  return axios(url)
-    .then((resp) => resp.data);
+  return new Promise((resolve, reject) => {
+    jsonp(url, { param: 'callback' }, (err, resp) => {
+      if (err) reject(err);
+      resolve(resp);
+    });
+  });
 };
 
 export const getCityPhoto = (city: string) => {
