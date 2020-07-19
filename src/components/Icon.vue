@@ -1,5 +1,5 @@
 <template>
-  <div class="icon">
+  <div class="icon" v-if="icon">
     <div class="icon__label">{{label}}</div>
     <DayClear class="icon__icon" v-if="[1,2,3,4,5].indexOf(icon) !== -1" />
     <Cloudy class="icon__icon" v-if="[5,6,7,8,9,10,11,19,20,21,22,23].indexOf(icon) !== -1" />

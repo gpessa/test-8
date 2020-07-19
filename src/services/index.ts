@@ -2,7 +2,7 @@ import axios from 'axios';
 import jsonp from 'jsonp';
 
 export const getCityInfo = (locationKey: string): Promise<any> => {
-  const url = `http://dataservice.accuweather.com/locations/v1/${locationKey}?apikey=${process.env.VUE_APP_ACCUWEATHER_API_KEY}`;
+  const url = `https://dataservice.accuweather.com/locations/v1/${locationKey}?apikey=${process.env.VUE_APP_ACCUWEATHER_API_KEY}`;
   return new Promise((resolve, reject) => {
     jsonp(url, { param: 'callback' }, (err, resp) => {
       if (err) reject(err);
@@ -12,7 +12,7 @@ export const getCityInfo = (locationKey: string): Promise<any> => {
 };
 
 export const getCityWeather = (locationKey: string): Promise<any> => {
-  const url = `http://dataservice.accuweather.com/forecasts/v1/daily/1day/${locationKey}?apikey=${process.env.VUE_APP_ACCUWEATHER_API_KEY}`;
+  const url = `https://dataservice.accuweather.com/forecasts/v1/daily/1day/${locationKey}?apikey=${process.env.VUE_APP_ACCUWEATHER_API_KEY}`;
   return new Promise((resolve, reject) => {
     jsonp(url, { param: 'callback' }, (err, resp) => {
       if (err) reject(err);
