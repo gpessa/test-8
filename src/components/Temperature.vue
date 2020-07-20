@@ -5,6 +5,21 @@
   </div>
 </template>
 
+<style scoped>
+.temperature {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.temperature__label {
+  width: 100px;
+  font-weight: 400;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+</style>
+
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { convertToCelsius } from '../services/index';
@@ -20,17 +35,3 @@ export default class Temperature extends Vue {
   }
 }
 </script>
-
-<style scoped>
-.temperature {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-.temperature__label {
-  width: 100px;
-  font-weight: 400;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-}
-</style>

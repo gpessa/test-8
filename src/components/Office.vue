@@ -68,14 +68,15 @@ export default class Office extends Vue {
 }
 
 .office__description {
-  min-height: 60px;
+  margin-top: 1rem;
+  min-height: 70px;
 }
 
 .office__data {
   flex: 1;
   z-index: 1;
   padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .office__map {

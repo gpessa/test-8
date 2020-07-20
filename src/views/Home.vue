@@ -21,6 +21,18 @@
         v-on:click="change(selected + 1)"
         :disabled="selected === (offices.length -1)"
       ></button>
+
+      <ul class="app__progress">
+        <li v-for="(office, index) in offices" :key="index">
+          <button
+            v-on:click="() => change(index)"
+            :class="{
+              'app__progress-item': true,
+              'app__progress-item--selected': selected === index
+            }"
+          />
+        </li>
+      </ul>
     </template>
   </div>
 </template>
@@ -35,7 +47,11 @@
   border: none;
   height: 100%;
   position: fixed;
+  cursor: pointer;
   background-color: transparent;
+}
+.app__button:disabled {
+  cursor: not-allowed;
 }
 .app__button--pre {
   left: 0%;
@@ -52,6 +68,31 @@
   border-radius: 1rem;
   background: #f44336;
   transform: translate(-50%, -50%);
+}
+.app__progress {
+  margin: 0;
+  left: 50%;
+  z-index: 3;
+  padding: 0;
+  bottom: 2rem;
+  display: flex;
+  position: fixed;
+  list-style: none;
+  transform: translateX(-50%);
+}
+.app__progress-item {
+  padding: 0;
+  width: 14px;
+  height: 14px;
+  border: none;
+  margin: 0.5rem;
+  display: block;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.app__progress-item--selected {
+  background-color: rgba(255, 255, 255, 1);
 }
 </style>
 
