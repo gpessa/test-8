@@ -11,15 +11,19 @@
 
 <style scoped>
 .icon {
+  height: 40px;
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
 }
 .icon__label {
-  width: 65px;
+  width: 90px;
   font-weight: 400;
   font-size: 0.8rem;
   text-transform: uppercase;
+}
+.icon__icon {
+  width: 40px;
 }
 </style>
 
